@@ -9,6 +9,10 @@ module HandlebarsAssets
         context.call('Handlebars.precompile', *args)
       end
 
+      def compile(html, data= {})
+        context.call("Handlebars.compile(#{html.inspect})", data)
+      end
+
       private
 
       def context
