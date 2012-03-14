@@ -1,10 +1,14 @@
 require "handlebars_assets/version"
 
 module HandlebarsAssets
-  PATH = File.expand_path("../../vendor/assets/javascripts", __FILE__)
+  attr_accessor :js_path
 
   def self.path
-    PATH
+    @js_path || File.expand_path("../../vendor/assets/javascripts", __FILE__)
+  end
+
+  def self.path=(path)
+    @js_path = path
   end
 
   autoload(:Handlebars, 'handlebars_assets/handlebars')
