@@ -20,11 +20,15 @@ module HandlebarsAssets
       end
 
       def source
-        @source ||= path.read
+        @source ||= path.read + helper_path.read
       end
 
       def path
         @path ||= assets_path.join('handlebars.js')
+      end
+
+      def helper_path
+        @helper_path ||= assets_path.join('handlebars.helpers.js')
       end
 
       def assets_path
